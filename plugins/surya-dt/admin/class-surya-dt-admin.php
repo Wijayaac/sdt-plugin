@@ -104,7 +104,6 @@ class Surya_Dt_Admin
 
 	public function custom_fields()
 	{
-		var_dump(file_exists(plugin_dir_path(__FILE__) . 'redux-framework/redux-core/framework.php'));
 		if (!class_exists('ReduxFramework') && file_exists(plugin_dir_path(__FILE__) . 'redux-framework/redux-core/framework.php')) {
 			require_once(plugin_dir_path(__FILE__) . 'redux-framework/redux-core/framework.php');
 		}
@@ -113,7 +112,7 @@ class Surya_Dt_Admin
 			return;
 		}
 
-		$opt_name = 'redux_demos';
+		$opt_name = 'sdt_test';
 
 		$theme = wp_get_theme(); // For use with some settings. Not necessary.
 
