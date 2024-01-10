@@ -124,6 +124,12 @@ class Surya_Dt
 		 */
 		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-surya-dt-public.php';
 
+		/**
+		 * The class responsible for defining all shortcode that occur in the public-facing
+		 * side of the site.
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-surya-dt-shortcode.php';
+
 		$this->loader = new Surya_Dt_Loader();
 	}
 

@@ -119,7 +119,7 @@ class Surya_Dt_Admin
 		$args = array(
 			'display_name'         => $theme->get('Name'),
 			'display_version'      => $theme->get('Version'),
-			'menu_title'           => esc_html__('Surya DT', 'your-textdomain-here'),
+			'menu_title'           => esc_html__('Surya DT', 'sdt-plugin'),
 			'customizer'           => true,
 		);
 
@@ -128,21 +128,78 @@ class Surya_Dt_Admin
 		Redux::set_section(
 			$opt_name,
 			array(
-				'title'  => esc_html__('Basic Field', 'your-textdomain-here'),
+				'title'  => esc_html__('Basic Field', 'sdt-plugin'),
 				'id'     => 'basic',
-				'desc'   => esc_html__('Basic field with no subsections.', 'your-textdomain-here'),
 				'icon'   => 'el el-home',
+				'desc' 	 => esc_html__('Use this short code in the page/post :  [sdt_shortcode]', 'sdt-plugin'),
 				'fields' => array(
+					// TODO: add field for google maps API Key in string format
 					array(
-						'id'       => 'opt-text',
+						'id'       => 'opt-api-key',
 						'type'     => 'text',
-						'title'    => esc_html__('Example Text', 'your-textdomain-here'),
-						'desc'     => esc_html__('Example description.', 'your-textdomain-here'),
-						'subtitle' => esc_html__('Example subtitle.', 'your-textdomain-here'),
+						'title'    => esc_html__('Google Maps API Key', 'sdt-plugin'),
+						'desc'     => esc_html__('Google Maps API Key', 'sdt-plugin'),
+						'subtitle' => esc_html__('Google Maps API Key', 'sdt-plugin'),
 						'hint'     => array(
-							'content' => 'This is a <b>hint</b> tool-tip for the text field.<br/><br/>Add any HTML based text you like here.',
+							'content' => 'Google Maps API Key',
 						)
-					)
+					),
+					// TODO: add field for URL KML file in string format
+					array(
+						'id'       => 'opt-kml-url',
+						'type'     => 'text',
+						'title'    => esc_html__('KML URL', 'sdt-plugin'),
+						'desc'     => esc_html__('KML URL', 'sdt-plugin'),
+						'subtitle' => esc_html__('KML URL', 'sdt-plugin'),
+						'hint'     => array(
+							'content' => 'KML URL',
+						)
+					),
+					// TODO: add field for CTA link inside location in string format
+					array(
+						'id'       => 'opt-cta-link-inside',
+						'type'     => 'text',
+						'title'    => esc_html__('CTA Link area Inside', 'sdt-plugin'),
+						'desc'     => esc_html__('CTA Link area Inside', 'sdt-plugin'),
+						'subtitle' => esc_html__('CTA Link area Inside', 'sdt-plugin'),
+						'hint'     => array(
+							'content' => 'CTA Link',
+						)
+					),
+					// TODO: add field for CTA link outside location in string format
+					array(
+						'id'       => 'opt-cta-link-outside',
+						'type'     => 'text',
+						'title'    => esc_html__('CTA Link area Outside', 'sdt-plugin'),
+						'desc'     => esc_html__('CTA Link area Outside', 'sdt-plugin'),
+						'subtitle' => esc_html__('CTA Link area Outside', 'sdt-plugin'),
+						'hint'     => array(
+							'content' => 'CTA Link',
+						)
+					),
+					// TODO: Add field optional for longitude and latitude in string format
+					array(
+						'id'       => 'opt-latitude',
+						'type'     => 'text',
+						'title'    => esc_html__('Latitude', 'sdt-plugin'),
+						'desc'     => esc_html__('Latitude', 'sdt-plugin'),
+						'subtitle' => esc_html__('Latitude', 'sdt-plugin'),
+						'default' => '-37.81230754760852',
+						'hint'     => array(
+							'content' => 'Latitude Optional if you want set the initial center location',
+						)
+					),
+					array(
+						'id'       => 'opt-longitude',
+						'type'     => 'text',
+						'title'    => esc_html__('Longitude', 'sdt-plugin'),
+						'desc'     => esc_html__('Longitude', 'sdt-plugin'),
+						'subtitle' => esc_html__('Longitude', 'sdt-plugin'),
+						'default' => '144.9624813912677',
+						'hint'     => array(
+							'content' => 'Longitude Optional if you want set the initial center location',
+						)
+					),
 				)
 			)
 		);

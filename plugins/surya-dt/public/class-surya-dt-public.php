@@ -20,7 +20,8 @@
  * @subpackage Surya_Dt/public
  * @author     Kadek wijaya <wijayatesting.app@gmail.com>
  */
-class Surya_Dt_Public {
+class Surya_Dt_Public
+{
 
 	/**
 	 * The ID of this plugin.
@@ -47,11 +48,11 @@ class Surya_Dt_Public {
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version)
+	{
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -59,7 +60,8 @@ class Surya_Dt_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -73,8 +75,7 @@ class Surya_Dt_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/surya-dt-public.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/surya-dt-public.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -82,7 +83,8 @@ class Surya_Dt_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -96,8 +98,37 @@ class Surya_Dt_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/surya-dt-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/surya-dt-public.js', array('jquery'), $this->version, false);
 
+		if (!class_exists('Redux')) {
+			return;
+		}
+
+		$apiKey = Redux::get_option('sdt_test', 'opt-api-key');
+
+		// Define an array to store the script details
+		$scripts = array(
+			array(
+				'handle' => 'google-maps',
+				'src' => 'https://maps.googleapis.com/maps/api/js?key=' . $apiKey,
+				'deps' => array(),
+			),
+			array(
+				'handle' => 'geoxml3',
+				'src' => 'https://cdn.jsdelivr.net/gh/geocodezip/geoxml3/polys/geoxml3.js',
+				'deps' => array('google-maps'),
+			),
+			array(
+				'handle' => 'epolyv3',
+				'src' => plugin_dir_url(__FILE__) . 'js/v3_epoly.js',
+				'deps' => array('google-maps', 'geoxml3'),
+			)
+		);
+
+		// Loop through the scripts array and register/enqueue the scripts
+		foreach ($scripts as $script) {
+			wp_register_script($script['handle'], $script['src'], $script['deps'], $this->version, false);
+			wp_enqueue_script($script['handle']);
+		}
 	}
-
 }
