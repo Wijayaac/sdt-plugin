@@ -2,7 +2,7 @@
 
 ## Installation
 
-1. Download the `surya-dt.zip` file from the [plugin repository](https://example.com/plugins/surya-dt).
+1. Download the `surya-dt.zip` file from the [plugin repository](https://github.com/Wijayaac/sdt-plugin).
 2. Log in to your WordPress admin dashboard.
 3. Navigate to the "Plugins" section and click on "Add New".
 4. Click on the "Upload Plugin" button.
