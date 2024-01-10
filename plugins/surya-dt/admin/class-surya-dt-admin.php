@@ -131,9 +131,8 @@ class Surya_Dt_Admin
 				'title'  => esc_html__('Basic Field', 'sdt-plugin'),
 				'id'     => 'basic',
 				'icon'   => 'el el-home',
-				'desc' 	 => esc_html__('Use this short code in the page/post :  [sdt_shortcode]', 'sdt-plugin'),
+				'desc' 	 => esc_html__('Use this short code in the page/post to show the input element:  [sdt_shortcode] ', 'sdt-plugin'),
 				'fields' => array(
-					// TODO: add field for google maps API Key in string format
 					array(
 						'id'       => 'opt-api-key',
 						'type'     => 'text',
@@ -144,7 +143,6 @@ class Surya_Dt_Admin
 							'content' => 'Google Maps API Key',
 						)
 					),
-					// TODO: add field for URL KML file in string format
 					array(
 						'id'       => 'opt-kml-url',
 						'type'     => 'text',
@@ -155,7 +153,6 @@ class Surya_Dt_Admin
 							'content' => 'KML URL',
 						)
 					),
-					// TODO: add field for CTA link inside location in string format
 					array(
 						'id'       => 'opt-cta-link-inside',
 						'type'     => 'text',
@@ -163,10 +160,9 @@ class Surya_Dt_Admin
 						'desc'     => esc_html__('CTA Link area Inside', 'sdt-plugin'),
 						'subtitle' => esc_html__('CTA Link area Inside', 'sdt-plugin'),
 						'hint'     => array(
-							'content' => 'CTA Link',
+							'content' => 'CTA Link for inside location',
 						)
 					),
-					// TODO: add field for CTA link outside location in string format
 					array(
 						'id'       => 'opt-cta-link-outside',
 						'type'     => 'text',
@@ -174,10 +170,9 @@ class Surya_Dt_Admin
 						'desc'     => esc_html__('CTA Link area Outside', 'sdt-plugin'),
 						'subtitle' => esc_html__('CTA Link area Outside', 'sdt-plugin'),
 						'hint'     => array(
-							'content' => 'CTA Link',
+							'content' => 'CTA Link for outside location',
 						)
 					),
-					// TODO: Add field optional for longitude and latitude in string format
 					array(
 						'id'       => 'opt-latitude',
 						'type'     => 'text',

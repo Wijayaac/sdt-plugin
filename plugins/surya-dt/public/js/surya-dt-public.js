@@ -28,7 +28,6 @@
    * Although scripts in the WordPress core, Plugins and Themes may be
    * practising this, we should strive to set a better example in our own work.
    */
-  // TODO: refactor code and remove unused code
   var geoXml = null;
   var map = null;
   var geocoder = null;
@@ -65,7 +64,7 @@
 
     submitButton.addEventListener("click", function (e) {
       e.preventDefault();
-      console.log("submit button clicked");
+
       const address = document.querySelector("#sdt-address").value;
       showAddress(address);
     });

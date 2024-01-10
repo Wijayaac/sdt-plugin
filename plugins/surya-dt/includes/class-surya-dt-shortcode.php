@@ -1,5 +1,4 @@
 <?php
-// TODO: create custom WP Shortcode for displaying the Google Maps and Form
 function sdt_map_shortcode()
 {
 	$opt_name = 'sdt_test';
